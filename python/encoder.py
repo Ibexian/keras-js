@@ -74,7 +74,7 @@ class Encoder:
                 weight_value = g[weight_name].value
                 w = self.model.model_weights.add()
                 w.layer_name = layer_name
-                w.weight_name = weight_name
+                w.weight_name = weight_name.decode().replace('_1/','/')
                 w.shape.extend(list(weight_value.shape))
                 if self.quantize:
                     w.type = 'uint8'
